@@ -1,0 +1,18 @@
+# Файлы Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Виртуальное окружение (если используется virtualenv)
+venv/
+
+# Файлы конфигурации
+.env
+.flaskenv
+
+# Кэш Flask
+instance/
+
+# Файлы базы данных
+*.db

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Привет, Flask!</title>
+</head>
+<body>
+    <h1>Добро пожаловать в мой Flask веб-сервер!</h1>
+
+    <nav>
+        <ul>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/contact">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <p>Текущее время: {{ current_time }}</p>
+
+    <h2>Сообщения:</h2>
+    <ul>
+        {% for message in messages %}
+            <li>{{ message['name'] }} написал(а) "{{ message['message'] }}" в {{ message['timestamp'] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Добавить новое сообщение:</h2>
+    <form action="/add_message" method="post">
+        <label for="name">Имя:</label>
+        <input type="text" name="name" required>
+
+        <br>
+
+        <label for="message">Сообщение:</label>
+        <textarea name="message" required></textarea>
+
+        <br>
+
+        <input type="submit" value="Отправить">
+    </form>
+</body>
+</html>
